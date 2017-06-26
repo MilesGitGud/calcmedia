@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./jquery.js"></script>
+    <title>Calculadora de média</title>
+    <meta name="Description" content="Why not?">
+    <meta name="Keywords" content="calculadoramedia">
+  </head>
+  <body>
+    <div class="wrapper">
+      <center>
+        <h3>Calculadora de média</h3>
+        <div class="embed">
+          <input id="m1b" type="number" min="0" max="100" placeholder="Média 1° bimestre" spellcheck="none" class="embed-block">
+          <input id="m2b" type="number" placeholder="Média 2° bimestre" min="0" max="100" spellcheck="none" class="embed-block">
+          <p class="notatxtb">Para ficar na média, você precisa tirar, pelo menos:</p>
+          <p class="notatxt">0</p>
+        </div>
+      </center>
+    </div>
+
+    <script type="text/javascript">
+      $("input[type=number]").keyup(function(){
+        var m1b = parseInt($("#m1b").val());
+        var m2b = parseInt($("#m2b").val());
+        if(isNaN(m1b)) m1b = 0;
+        if(isNaN(m2b)) m2b = 0;
+        var r = 120 - ((m1b + m2b) / 2);
+        $(".notatxt").text(r);
+      });
+    </script>
+  </body>
+</html>
